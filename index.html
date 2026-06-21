@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Words Memory - 高效记忆单词，轻松学习语言</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/desktop.css" media="(min-width: 1024px)">
+    <link rel="stylesheet" href="css/mobile.css" media="(max-width: 767px)">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="app">
+        <!-- 欢迎页面 -->
+        <div class="welcome-screen glass-effect" id="welcomeScreen">
+            <div class="logo-area">
+                <img src="assets/images/logo.svg" alt="Words Memory Logo" class="logo">
+                <h1>Words Memory</h1>
+            </div>
+            <div class="welcome-text">
+                <h2>高效记忆单词，轻松掌握语言</h2>
+                <p>使用科学的记忆方法，提高您的词汇量</p>
+            </div>
+            <div class="feature-cards">
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    </div>
+                    <h3>词库管理</h3>
+                    <p>导入、创建和管理您的单词库</p>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <h3>智能复习</h3>
+                    <p>基于艾宾浩斯遗忘曲线的复习提醒</p>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    </div>
+                    <h3>学习统计</h3>
+                    <p>详细的学习进度和统计数据</p>
+                </div>
+            </div>
+            <button class="btn btn-primary" id="startBtn">立即开始</button>
+        </div>
+
+        <!-- 应用主界面 -->
+        <div class="app-container hidden" id="appContainer">
+            <!-- 顶部导航栏 -->
+            <nav class="top-nav glass-effect" id="topNav">
+                <div class="top-nav__logo">
+                    <a href="index.html">
+                        <img src="assets/images/logo.svg" alt="Words Memory Logo">
+                        <h1>Words Memory</h1>
+                    </a>
+                </div>
+                <div class="top-nav__menu">
+                    <a href="index.html" class="top-nav__menu-item active">首页</a>
+                    <a href="wordbank/" class="top-nav__menu-item">词库</a>
+                    <a href="study/" class="top-nav__menu-item">背单词</a>
+                    <a href="review/" class="top-nav__menu-item">复习</a>
+                    <a href="stats/" class="top-nav__menu-item">成就</a>
+                    <a href="settings/" class="top-nav__menu-item">设置</a>
+                </div>
+                <div class="top-nav__actions">
+                    <div class="top-nav__search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" placeholder="搜索单词...">
+                    </div>
+                    <div class="top-nav__user">
+                        <div class="top-nav__user-avatar">张</div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- 主内容区域 -->
+            <main class="main-content" id="mainContent">
+                <!-- 首页仪表盘 -->
+                <div class="dashboard" id="dashboardPage">
+                    <h2 class="page-title">欢迎回来</h2>
+                    <div class="stats-overview">
+                        <div class="stat-card glass-effect">
+                            <div class="stat-number">30/50</div>
+                            <div class="stat-label">今日进度</div>
+                        </div>
+                        <div class="stat-card glass-effect">
+                            <div class="stat-number">7</div>
+                            <div class="stat-label">连续学习</div>
+                        </div>
+                        <div class="stat-card glass-effect">
+                            <div class="stat-number">1,248</div>
+                            <div class="stat-label">已学单词</div>
+                        </div>
+                        <div class="stat-card glass-effect">
+                            <div class="stat-number">24</div>
+                            <div class="stat-label">待复习</div>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <h3>快速操作</h3>
+                        <div class="action-buttons">
+                            <a href="study/" class="action-btn glass-effect">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                                <span>开始背单词</span>
+                            </a>
+                            <a href="review/" class="action-btn glass-effect">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                <span>开始复习</span>
+                            </a>
+                            <a href="wordbank/" class="action-btn glass-effect">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                                <span>管理词库</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 学习页面 -->
+                <div class="study-page hidden" id="studyPage">
+                    <h2 class="page-title">今日待学单词</h2>
+                    
+                    <div class="study-search">
+                        <div class="search-box glass-effect">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <input type="text" placeholder="搜索单词...">
+                        </div>
+                    </div>
+                    
+                    <div class="word-cards-container">
+                        <!-- 单词卡片将通过JS动态生成 -->
+                        <div class="loading-indicator" id="wordCardsLoading">
+                            <div class="spinner"></div>
+                            <p>正在加载单词...</p>
+                        </div>
+                        
+                        <div class="word-cards" id="wordCardsList">
+                            <!-- 单词卡片由JS动态生成 -->
+                        </div>
+                        
+                        <div class="pagination glass-effect">
+                            <button class="pagination-btn" id="prevPageBtn" disabled>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                上一页
+                            </button>
+                            <div class="pagination-info">第 <span id="currentPage">1</span> 页，共 <span id="totalPages">10</span> 页</div>
+                            <button class="pagination-btn" id="nextPageBtn">
+                                下一页
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 词库页面 -->
+                <div class="wordbank-page hidden" id="wordBankPage">
+                    <h2 class="page-title">我的词库</h2>
+                    <div class="wordbank-content">
+                        <p>词库管理功能开发中...</p>
+                    </div>
+                </div>
+                
+                <!-- 复习页面 -->
+                <div class="review-page hidden" id="reviewPage">
+                    <h2 class="page-title">单词复习</h2>
+                    <div class="review-content">
+                        <p>复习功能开发中...</p>
+                    </div>
+                </div>
+                
+                <!-- 成就页面 -->
+                <div class="stats-page hidden" id="statsPage">
+                    <h2 class="page-title">学习成就</h2>
+                    <div class="stats-content">
+                        <p>成就统计功能开发中...</p>
+                    </div>
+                </div>
+                
+                <!-- 设置页面 -->
+                <div class="settings-page hidden" id="settingsPage">
+                    <h2 class="page-title">应用设置</h2>
+                    <div class="settings-content">
+                        <p>设置功能开发中...</p>
+                    </div>
+                </div>
+            </main>
+
+            <!-- 底部导航栏 (移动端) -->
+            <nav class="mobile-nav" id="mobileNav">
+                <a href="index.html" class="nav-item active">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <span>首页</span>
+                </a>
+                <a href="wordbank/" class="nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <span>词库</span>
+                </a>
+                <a href="study/" class="nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    <span>背单词</span>
+                </a>
+                <a href="review/" class="nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>复习</span>
+                </a>
+                <a href="stats/" class="nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    <span>成就</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- 单词学习卡片模板 -->
+        <div class="word-card-template hidden" id="wordCardTemplate">
+            <div class="word-card glass-effect">
+                <div class="word-card-front">
+                    <div class="word-text">Eloquent</div>
+                    <div class="word-phonetic">/ˈeləkwənt/</div>
+                </div>
+                <div class="word-card-back">
+                    <div class="word-definition">雄辩的，有说服力的</div>
+                    <div class="word-example">She gave an eloquent speech.</div>
+                    <div class="memory-buttons">
+                        <button class="memory-btn memory-hard">困难</button>
+                        <button class="memory-btn memory-normal">一般</button>
+                        <button class="memory-btn memory-easy">简单</button>
+                        <button class="memory-btn memory-known">已掌握</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/wordBank.js"></script>
+    <script src="js/memorySystem.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html> 

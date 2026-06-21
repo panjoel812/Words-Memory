@@ -1,0 +1,104 @@
+/* ======== 桌面端样式 (>= 1024px) ======== */
+
+/* 侧边栏导航 - 在新版布局中不再使用 */
+.sidebar {
+    display: none;
+}
+
+/* 顶部导航栏 */
+.top-nav {
+    padding: 0 var(--spacing-xl);
+}
+
+.top-nav__menu {
+    gap: var(--spacing-xl);
+}
+
+.top-nav__search input {
+    width: 250px;
+}
+
+/* 隐藏移动端导航 */
+.mobile-nav {
+    display: none !important;
+}
+
+/* 主内容区域 */
+.main-content {
+    padding: var(--spacing-xl);
+    margin-bottom: 0 !important; /* 覆盖移动端样式 */
+}
+
+/* 欢迎页面 */
+.welcome-screen {
+    padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-xl) calc(var(--spacing-xl) * 2);
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+.welcome-text h2 {
+    font-size: 2.5rem;
+}
+
+.welcome-text p {
+    font-size: 1.2rem;
+}
+
+.feature-cards {
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* 仪表盘 */
+.dashboard {
+    padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+.stats-overview {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.activity-list {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* 学习页面 */
+.study-page {
+    padding: var(--spacing-xl);
+}
+
+.word-cards {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* 单词卡片 */
+.word-card {
+    max-width: 600px;
+    height: 350px;
+}
+
+.word-text {
+    font-size: 3rem;
+}
+
+.word-definition {
+    font-size: 1.8rem;
+}
+
+.word-example {
+    font-size: 1.2rem;
+}
+
+.memory-buttons {
+    max-width: 80%;
+}
+
+/* 悬停效果 */
+.glass-effect:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+    transition: all var(--transition-fast);
+} 
